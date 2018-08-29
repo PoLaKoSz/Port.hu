@@ -29,7 +29,8 @@ use PoLaKoSz\PortHu\QuickSearch;
 ...
 $search = new QuickSearch();
 
-$movie = $search->get( 'Viskó' );
+// returns an Array of PortMovie object
+$movies = $search->get( 'Viskó' );
 
 var_dump( $movie );
 ````
