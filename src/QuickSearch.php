@@ -2,7 +2,7 @@
 
 namespace PoLaKoSz\PortHu;
 
-use PoLaKoSz\PortHu\Deserializers\MoviePageDeserializer;
+use PoLaKoSz\PortHu\Deserializers\QuickSearchDeserializer;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
 class QuickSearch extends Endpoint
