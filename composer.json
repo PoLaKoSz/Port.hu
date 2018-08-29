@@ -1,7 +1,7 @@
 {
     "name": "polakosz/porthu",
     "type": "library",
-    "description": "Library to get informations for a specific movie from Port.hu",
+    "description": "Library to search for movies and to get informations for a specific movie from https://port.hu/",
     "keywords": [
         "PoLáKoSz",
         "Port",

@@ -4,6 +4,9 @@ namespace PoLaKoSz\PortHu\Models;
 
 class PortMovie implements \JsonSerializable
 {
+    public const CAT = "document-movie-movie";
+
+
     private $id;
     private $url;
     private $imdbURL;

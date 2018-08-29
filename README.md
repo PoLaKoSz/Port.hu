@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/polakosz/porthu/downloads)](https://packagist.org/packages/polakosz/porthu)
 [![License](https://poser.pugx.org/polakosz/porthu/license)](https://packagist.org/packages/polakosz/porthu)
 
-Port.hu is one of the biggest hungarian movie database. This PHP library helps to get informations for a specific movie.
+[Port.hu](https://port.hu/) is one of the biggest hungarian movie database. This PHP library helps to search for movies and to get informations for a specific movie.
 
 ## Install
 
@@ -20,6 +20,16 @@ use PoLaKoSz\PortHu\MoviePage;
 $port = new MoviePage();
 
 $movie = $port->get( 104833 );
+
+var_dump( $movie );
+````
+
+```` php
+use PoLaKoSz\PortHu\QuickSearch;
+...
+$search = new QuickSearch();
+
+$movie = $search->get( 'Viskó' );
 
 var_dump( $movie );
 ````

@@ -10,7 +10,6 @@ abstract class Endpoint
 {
     private $webClient;
     private $url;
-    private $headers;
 
 
 
