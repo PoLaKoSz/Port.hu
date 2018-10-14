@@ -41,14 +41,6 @@ var_dump( $movie );
 
 Navigate to the root folder with the terminal and run one of the following code:
 
-#### All
-
-`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests`
-
-or
-
-`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php .\\tests`
-
 #### Integration Tests
 
 `$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\integration`
