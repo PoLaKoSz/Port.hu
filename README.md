@@ -19,6 +19,7 @@ use PoLaKoSz\PortHu\MoviePage;
 ...
 $port = new MoviePage();
 
+// returns a PoLaKoSz\PortHu\Models\PortMovie object
 $movie = $port->get( 104833 );
 
 var_dump( $movie );
@@ -29,10 +30,10 @@ use PoLaKoSz\PortHu\QuickSearch;
 ...
 $search = new QuickSearch();
 
-// returns an Array of PortMovie object
+// returns an Array of PoLaKoSz\PortHu\Models\QuickSearchResult object
 $movies = $search->get( 'Viskó' );
 
-var_dump( $movie );
+var_dump( $movies );
 ````
 
 # Tests
