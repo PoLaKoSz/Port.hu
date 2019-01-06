@@ -23,7 +23,7 @@ class QuickSearch extends Endpoint
      * @return  Array   of QuickSearchResult
      */
     public function get(string $query) : array {
-        $apiResult = parent::callAPI( '?q=' . $query );
+        $apiResult = parent::callAPI( '?q=' . urlencode( $query ) );
 
         return QuickSearchDeserializer::convert( $apiResult );
     }
