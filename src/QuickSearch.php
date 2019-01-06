@@ -18,7 +18,7 @@ class QuickSearch extends Endpoint
 
 
     /**
-     * Make a quick search with the given term
+     * Make a quick search with the given term.
      * 
      * @return  Array   of PortMovie
      */

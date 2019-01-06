@@ -14,7 +14,7 @@ class MoviePage extends Endpoint
 
 
     /**
-     * Get movie details for the given movie ID
+     * Get movie details for the given movie ID.
      * 
      * @return  PortMovie
      */

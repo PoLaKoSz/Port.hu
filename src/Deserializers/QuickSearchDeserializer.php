@@ -11,7 +11,7 @@ class QuickSearchDeserializer
 
 
     /**
-     * Convert the Json string into object(s)
+     * Convert the Json string into object(s).
      * 
      * @return  Array   of PortMovie
      */
@@ -22,7 +22,7 @@ class QuickSearchDeserializer
 
         foreach ($objects as &$object)
         {
-            if ( $object->cls != PortMovie::CAT )
+            if ( $object->category->cls != PortMovie::CAT )
                 continue;
             
             $id             = static::getID( $object->url );
