@@ -5,7 +5,7 @@ namespace PoLaKoSz\PortHu\Tests\Deserializers;
 use PHPUnit\Framework\TestCase;
 
 use PoLaKoSz\PortHu\Deserializers\QuickSearchDeserializer;
-use PoLaKoSz\PortHu\Models\PortMovie;
+use PoLaKoSz\PortHu\Models\QuickSearchResult;
 
 class QuickSearchDeserializerTest extends TestCase
 {
@@ -24,7 +24,7 @@ class QuickSearchDeserializerTest extends TestCase
 
     public function testReturnValidObjectType()
     {
-        $this->assertInstanceOf( PortMovie::class, $this->results[0] );
+        $this->assertInstanceOf( QuickSearchResult::class, $this->results[0] );
     }
     
     public function testCanExtractMovieId()

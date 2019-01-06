@@ -20,7 +20,7 @@ class QuickSearch extends Endpoint
     /**
      * Make a quick search with the given term.
      * 
-     * @return  Array   of PortMovie
+     * @return  Array   of QuickSearchResult
      */
     public function get(string $query) : array {
         $apiResult = parent::callAPI( '?q=' . $query );

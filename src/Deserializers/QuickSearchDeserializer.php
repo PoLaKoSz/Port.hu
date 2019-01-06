@@ -2,7 +2,7 @@
 
 namespace PoLaKoSz\PortHu\Deserializers;
 
-use PoLaKoSz\PortHu\Models\PortMovie;
+use PoLaKoSz\PortHu\Models\QuickSearchResult;
 use PHPHtmlParser\Dom;
 
 class QuickSearchDeserializer
@@ -13,7 +13,7 @@ class QuickSearchDeserializer
     /**
      * Convert the Json string into object(s).
      * 
-     * @return  Array   of PortMovie
+     * @return  Array   of QuickSearchResult
      */
     public static function convert(string $json) : array {
         $objects = json_decode( $json );
@@ -22,20 +22,18 @@ class QuickSearchDeserializer
 
         foreach ($objects as &$object)
         {
-            if ( $object->category->cls != PortMovie::CAT )
+            if ( $object->category->cls != QuickSearchResult::CLS )
                 continue;
             
             $id             = static::getID( $object->url );
             $url            = QuickSearchDeserializer::BASE_URL . $object->url;
-            $imdbURL        = '';
             $hungarianTitle = $object->name;
-            $originalTitle  = '';
             $year           = static::getYear( $object->subtitle );
             $poster         = $object->thumbnail;
 
             array_push(
                 $response,
-                new PortMovie( $id, $url, $imdbURL, $hungarianTitle, $originalTitle, $year, $poster )
+                new QuickSearchResult( $id, $url, $hungarianTitle, $year, $poster )
             );
         }
 
