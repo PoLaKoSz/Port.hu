@@ -9,17 +9,19 @@ class PortMovie implements \JsonSerializable
     private $imdbURL;
     private $hungarianTitle;
     private $originalTitle;
+    private $hasYear;
     private $year;
     private $poster;
 
 
 
-    public function __construct( string $id, string $url, string $imdbURL, string $hungarianTitle, string $originalTitle, int $year, string $poster) {
+    public function __construct( string $id, string $url, string $imdbURL, string $hungarianTitle, string $originalTitle, bool $hasYear, int $year, string $poster) {
         $this->id = $id;
         $this->url = $url;
         $this->imdbURL = $imdbURL;
         $this->hungarianTitle = $hungarianTitle;
         $this->originalTitle = $originalTitle;
+        $this->hasYear        = $hasYear;
         $this->year = $year;
         $this->poster = $poster;
     }
@@ -45,7 +47,19 @@ class PortMovie implements \JsonSerializable
     public function getOriginalTitle() : string {
         return $this->originalTitle;
     }
+
+    /**
+     * This method recomennded to use when You want to work with the getYear() method.
+     * There are cases when no year provided for a movie, in that case the getYear()
+     * method will return -1.
+     */
+    public function hasYear() : bool {
+        return $this->hasYear;
+    }
     
+    /**
+     * @return int  -1 if no year found, or the actual year.
+     */
     public function getYear() : int {
         return $this->year;
     }

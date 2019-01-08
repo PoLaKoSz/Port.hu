@@ -14,10 +14,11 @@ class MoviePageWithoutPosterTest extends MoviePageDeserializerBase
         $imdbURL = 'http://www.imdb.com/title/tt2872518/';
         $hungarianTitle = 'A viskó';
         $originalTitle = 'The Shack';
+        $hasYear        = true;
         $year = 2017;
         $poster = '';
         
-        $model = new PortMovie( $id, $url, $imdbURL, $hungarianTitle, $originalTitle, $year, $poster );
+        $model = new PortMovie( $id, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster );
         parent::__construct( 'visko', $model );
     }
 }

@@ -23,9 +23,10 @@ class MoviePageDeserializer
         $hungarianTitle = static::getHungarianTitle( $html );
         $originalTitle  = static::getOriginalTitle( $html );
         $year           = static::getYear( $html );
+        $hasYear        = $year != -1;
         $poster         = static::getPoster( $html );
 
-        return new PortMovie( $movieID, $url, $imdbURL, $hungarianTitle, $originalTitle, $year, $poster );
+        return new PortMovie( $movieID, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster );
     }
 
 
@@ -61,7 +62,12 @@ class MoviePageDeserializer
 
         preg_match_all( '/\d{4}/', $details, $matches );
 
-        return (int) $matches[0][0];
+        if ( !isset( $matches[0][0] ) )
+            return -1;
+        else
+        {
+            return (int) $matches[0][0];
+        }
     }
 
     private static function getPoster(string $html) : string {

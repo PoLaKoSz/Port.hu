@@ -40,6 +40,11 @@ class MoviePageTest extends TestCase
         $this->assertEquals( 'A kém, aki dobott engem',  $this->result->getHungarianTitle() );
     }
 
+    public function testHasYear()
+    {
+        $this->assertTrue( $this->result->hasYear() );
+    }
+
     public function testCanExtractMovieYear()
     {
         $this->assertEquals( 2018, $this->result->getYear() );

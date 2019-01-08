@@ -55,6 +55,11 @@ abstract class MoviePageDeserializerBase extends TestCase
         $this->assertEquals( $this->expectedModel->getOriginalTitle(), $this->actualModel->getOriginalTitle() );
     }
 
+    public function testHasYear()
+    {
+        $this->assertEquals( $this->expectedModel->hasYear(), $this->actualModel->hasYear() );
+    }
+
     public function testCanExtractMovieYear()
     {
         $this->assertEquals( $this->expectedModel->getYear(), $this->actualModel->getYear() );
