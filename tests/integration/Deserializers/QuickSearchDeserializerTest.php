@@ -14,9 +14,9 @@ class QuickSearchDeserializerTest extends TestCase
 
 
     public function __construct() {
-        $json = $this->loadStaticFile( 'quicksearch' );
+        $json          = $this->loadStaticFile( 'quicksearch' );
 
-        $class = new QuickSearchDeserializer();
+        $class         = new QuickSearchDeserializer();
         $this->results = $class->convert( $json );
     }
 
@@ -54,11 +54,11 @@ class QuickSearchDeserializerTest extends TestCase
      * 
      * @return  string      File content
      */
-    private function loadStaticFile(string $fileName) : string {        
-        $filePath = 'tests/integration/StaticResources/' . $fileName . '.html';
+    private function loadStaticFile( string $fileName ) : string {        
+        $filePath    = 'tests/integration/StaticResources/' . $fileName . '.html';
 
-        $file = fopen( $filePath, "r");
-        $fileContent = fread( $file, filesize( $filePath ));
+        $file        = fopen( $filePath, "r");
+        $fileContent = fread( $file, filesize( $filePath ) );
         fclose( $file );
 
         return $fileContent;

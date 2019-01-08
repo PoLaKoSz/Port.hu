@@ -15,11 +15,11 @@ abstract class MoviePageDeserializerBase extends TestCase
 
 
     public function __construct( string $resourceName, PortMovie $model ) {
-        $class = new MoviePageDeserializer();
+        $class               = new MoviePageDeserializer();
 
-        $html = $this->loadStaticFile( $resourceName );
-        $this->actualModel = $class->convert( $model->getID(), $html );
-
+        $html                = $this->loadStaticFile( $resourceName );
+        $this->actualModel   = $class->convert( $model->getID(), $html );
+        
         $this->expectedModel = $model;
     }
 
@@ -67,7 +67,7 @@ abstract class MoviePageDeserializerBase extends TestCase
      * 
      * @return  string      File content
      */
-    private function loadStaticFile(string $fileName) : string {        
+    private function loadStaticFile( string $fileName ) : string {        
         $filePath = 'tests/Integration/StaticResources/' . $fileName . '.html';
 
         $file = fopen( $filePath, "r");

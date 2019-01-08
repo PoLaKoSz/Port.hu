@@ -15,8 +15,7 @@ abstract class Endpoint
 
     public function __construct(string $endpointAddress) {
         $this->webClient = new WebClient();
-
-        $this->url = MoviePageDeserializer::BASE_URL . $endpointAddress;
+        $this->url       = MoviePageDeserializer::BASE_URL . $endpointAddress;
     }
 
 

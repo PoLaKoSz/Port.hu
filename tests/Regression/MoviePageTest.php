@@ -14,7 +14,7 @@ class MoviePageTest extends TestCase
 
 
     public function __construct() {
-        $page = new MoviePage();
+        $page         = new MoviePage();
         $this->result = $page->get( 202073 );
     }
 
