@@ -32,5 +32,10 @@
         "psr-4": {
             "PoLaKoSz\\PortHu\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "run-all-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\",
+        "run-i-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Integration",
+        "run-r-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Regression"
     }
 }

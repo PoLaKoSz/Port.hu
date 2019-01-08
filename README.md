@@ -38,14 +38,6 @@ var_dump( $movies );
 
 ## Tests
 
-### on Windows
-
-Navigate to the root folder with the terminal and run one of the following code:
-
-#### Integration Tests
-
-`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Integration`
-
-or 
-
-`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php .\\tests\\Integration`
+- `$ composer run-all-tests`: runs both integration and regression tests
+- `$ composer run-i-tests`: runs only the integration tests (saved webpage parsing)
+- `$ composer run-r-tests`: runs only the regression tests (to detect HTML DOM changes in the endpoints - downloads webpage(s) from Port.hu and after try to parse them)
