@@ -18,8 +18,7 @@ class QuickSearchTest extends TestCase
 
 
 
-    public function testSearchForTheSpyWhoDumpedMeShouldReturnResults()
-    {
+    public function testSearchForTheSpyWhoDumpedMeShouldReturnResults() {
         $results = $this->search->get('A kém, aki dobott engem');
 
         $this->assertGreaterThan(0, count( $results ) );

@@ -20,38 +20,31 @@ class MoviePageTest extends TestCase
 
 
 
-    public function testReturnValidObjectType()
-    {
+    public function testReturnValidObjectType() {
         $this->assertInstanceOf( PortMovie::class, $this->result );
     }
     
-    public function testCanExtractMovieId()
-    {
+    public function testCanExtractMovieId() {
         $this->assertEquals( 202073, $this->result->getID() );
     }
 
-    public function testCanExtractMovieUrl()
-    {
+    public function testCanExtractMovieUrl() {
         $this->assertEquals( 'https://port.hu/adatlap/film/tv/-/movie-202073', $this->result->getURL() );
     }
 
-    public function testCanExtractMovieHungarianTitle()
-    {
+    public function testCanExtractMovieHungarianTitle() {
         $this->assertEquals( 'A kém, aki dobott engem',  $this->result->getHungarianTitle() );
     }
 
-    public function testHasYear()
-    {
+    public function testHasYear() {
         $this->assertTrue( $this->result->hasYear() );
     }
 
-    public function testCanExtractMovieYear()
-    {
+    public function testCanExtractMovieYear() {
         $this->assertEquals( 2018, $this->result->getYear() );
     }
 
-    public function testCanExtractMoviePoster()
-    {
+    public function testCanExtractMoviePoster() {
         $this->assertEquals( 'https://media.port.hu/images/001/074/350x510/093.jpg', $this->result->getPoster() );
     }
 }

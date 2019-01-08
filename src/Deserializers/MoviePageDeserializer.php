@@ -79,8 +79,7 @@ class MoviePageDeserializer
         return $posterNode->attributes->getNamedItem('src')->value;
     }
 
-    private static function getNode(string $html, string $xPath)
-    {
+    private static function getNode(string $html, string $xPath) {
         $dom = new \DOMDocument();
         @$dom->loadHTML( $html );
 

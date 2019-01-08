@@ -22,35 +22,29 @@ class QuickSearchDeserializerTest extends TestCase
 
 
 
-    public function testReturnValidObjectType()
-    {
+    public function testReturnValidObjectType() {
         $this->assertInstanceOf( QuickSearchResult::class, $this->results[0] );
     }
     
-    public function testCanExtractMovieId()
-    {
+    public function testCanExtractMovieId() {
         $this->assertEquals( 202073, $this->results[0]->getID() );
     }
 
-    public function testCanExtractMovieUrl()
-    {
+    public function testCanExtractMovieUrl() {
         $this->assertEquals(
             'https://port.hu/adatlap/film/mozi/a-kem-aki-dobott-engem-the-spy-who-dumped-me/movie-202073',
             $this->results[0]->getURL() );
     }
 
-    public function testCanExtractMovieHungarianTitle()
-    {
+    public function testCanExtractMovieHungarianTitle() {
         $this->assertEquals( 'A kém, aki dobott engem',  $this->results[0]->getHungarianTitle() );
     }
 
-    public function testCanExtractMovieYear()
-    {
+    public function testCanExtractMovieYear() {
         $this->assertEquals( 2018, $this->results[0]->getYear() );
     }
 
-    public function testCanExtractMoviePoster()
-    {
+    public function testCanExtractMoviePoster() {
         $this->assertEquals( 'https://media.port.hu/images/001/069/100x100/705.jpg', $this->results[0]->getPoster() );
     }
 
