@@ -36,16 +36,16 @@ $movies = $search->get( 'Viskó' );
 var_dump( $movies );
 ````
 
-# Tests
+## Tests
 
-## on Windows
+### on Windows
 
 Navigate to the root folder with the terminal and run one of the following code:
 
 #### Integration Tests
 
-`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\integration`
+`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Integration`
 
 or 
 
-`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php .\\tests\\integration`
+`$ .\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php .\\tests\\Integration`

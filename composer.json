@@ -25,7 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PoLaKoSz\\PortHu\\": "src"
+            "PoLaKoSz\\PortHu\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PoLaKoSz\\PortHu\\Tests\\": "tests/"
         }
     }
 }
