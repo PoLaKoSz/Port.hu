@@ -13,15 +13,17 @@ class QuickSearchResult implements \JsonSerializable
     private $id;
     private $url;
     private $hungarianTitle;
+    private $hasYear;
     private $year;
     private $poster;
 
 
 
-    public function __construct( string $id, string $url, string $hungarianTitle, int $year, string $poster) {
+    public function __construct( string $id, string $url, string $hungarianTitle, bool $hasYear, int $year, string $poster) {
         $this->id = $id;
         $this->url = $url;
         $this->hungarianTitle = $hungarianTitle;
+        $this->hasYear = $hasYear;
         $this->year = $year;
         $this->poster = $poster;
     }
@@ -38,6 +40,15 @@ class QuickSearchResult implements \JsonSerializable
 
     public function getHungarianTitle() : string {
         return $this->hungarianTitle;
+    }
+
+    /**
+     * This method recomennded to use when You want to work with the getYear() method.
+     * There are cases when no year provided for a movie, in that case the getYear()
+     * method will return -1.
+     */
+    public function hasYear() : bool {
+        return $this->hasYear;
     }
     
     public function getYear() : int {

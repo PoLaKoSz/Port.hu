@@ -29,11 +29,12 @@ class QuickSearchDeserializer
             $url            = QuickSearchDeserializer::BASE_URL . $object->url;
             $hungarianTitle = $object->name;
             $year           = static::getYear( $object->subtitle );
+            $hasYear        = $year != -1;
             $poster         = $object->thumbnail;
 
             array_push(
                 $response,
-                new QuickSearchResult( $id, $url, $hungarianTitle, $year, $poster )
+                new QuickSearchResult( $id, $url, $hungarianTitle, $hasYear, $year, $poster )
             );
         }
 
@@ -47,8 +48,14 @@ class QuickSearchDeserializer
     }
 
     private static function getYear(string $input) : int {
+
         preg_match( '/(\d+)(?!.*\d)/', $input, $match );
 
-        return (int) $match[0];
+        if ( !isset( $match[0] ) )
+            return -1;
+        else
+        {
+            return (int) $match[0];
+        }
     }
 }
