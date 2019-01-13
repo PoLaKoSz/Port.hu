@@ -1,12 +1,12 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers;
+namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePage;
 
 use PoLaKoSz\PortHu\Models\PortMovie;
 
 use PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePageDeserializerBase;
 
-class MoviePageWithoutPosterTest extends MoviePageDeserializerBase
+class WithoutPosterTest extends MoviePageDeserializerBase
 {
     public function __construct() {
         $id             = 184111;

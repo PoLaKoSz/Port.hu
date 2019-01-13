@@ -17,7 +17,7 @@ abstract class MoviePageDeserializerBase extends TestCase
     public function __construct( string $resourceName, PortMovie $model ) {
         $class               = new MoviePageDeserializer();
 
-        $html                = $this->loadStaticFile( $resourceName );
+        $html                = $this->loadStaticFile( 'MoviePage\\' . $resourceName );
         $this->actualModel   = $class->convert( $model->getID(), $html );
         
         $this->expectedModel = $model;

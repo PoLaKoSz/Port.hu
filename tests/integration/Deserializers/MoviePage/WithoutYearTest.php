@@ -1,12 +1,12 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers;
+namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePage;
 
 use PoLaKoSz\PortHu\Models\PortMovie;
 
 use PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePageDeserializerBase;
 
-class MoviePageWithoutYearTest extends MoviePageDeserializerBase
+class WithoutYearTest extends MoviePageDeserializerBase
 {
     public function __construct() {
         $id             = 176672;
@@ -19,6 +19,6 @@ class MoviePageWithoutYearTest extends MoviePageDeserializerBase
         $poster         = '';
 
         $model = new PortMovie( $id, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster );
-        parent::__construct( 'kingsglaive_15', $model, $hasYear );
+        parent::__construct( 'kingsglaive_15', $model );
     }
 }
