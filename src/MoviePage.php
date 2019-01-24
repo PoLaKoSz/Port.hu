@@ -5,7 +5,7 @@ namespace PoLaKoSz\PortHu;
 use PoLaKoSz\PortHu\Deserializers\MoviePageDeserializer;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
-class MoviePage extends Endpoint
+class MoviePage extends EndPoint
 {
     public function __construct() {
         parent::__construct(MoviePageDeserializer::ENDPOINT_URL);

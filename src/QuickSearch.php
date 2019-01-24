@@ -5,7 +5,7 @@ namespace PoLaKoSz\PortHu;
 use PoLaKoSz\PortHu\Deserializers\QuickSearchDeserializer;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
-class QuickSearch extends Endpoint
+class QuickSearch extends EndPoint
 {
     private const ENDPOINT_URL = 'search/suggest-list';
 
