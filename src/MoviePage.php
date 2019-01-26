@@ -7,7 +7,8 @@ use PoLaKoSz\PortHu\Models\PortMovie;
 
 class MoviePage extends EndPoint
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(MoviePageDeserializer::ENDPOINT_URL);
     }
 
@@ -15,12 +16,13 @@ class MoviePage extends EndPoint
 
     /**
      * Get movie details for the given movie ID.
-     * 
+     *
      * @return  PortMovie
      */
-    public function get(int $movieID) : PortMovie {
-        $result = parent::callAPI( $movieID );
+    public function get(int $movieID) : PortMovie
+    {
+        $result = parent::callAPI($movieID);
 
-        return MoviePageDeserializer::convert( $movieID, $result );
+        return MoviePageDeserializer::convert($movieID, $result);
     }
 }

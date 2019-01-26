@@ -15,7 +15,9 @@ class PortMovie implements \JsonSerializable
 
 
 
-    public function __construct( string $id, string $url, string $imdbURL, string $hungarianTitle, string $originalTitle, bool $hasYear, int $year, string $poster) {
+    // phpcs:ignore
+    public function __construct(string $id, string $url, string $imdbURL, string $hungarianTitle, string $originalTitle, bool $hasYear, int $year, string $poster)
+    {
         $this->id = $id;
         $this->url = $url;
         $this->imdbURL = $imdbURL;
@@ -28,23 +30,28 @@ class PortMovie implements \JsonSerializable
 
 
 
-    public function getID() : string {
+    public function getID() : string
+    {
         return $this->id;
     }
 
-    public function getURL() : string {
+    public function getURL() : string
+    {
         return $this->url;
     }
 
-    public function getIMDbURL() : string {
+    public function getIMDbURL() : string
+    {
         return $this->imdbURL;
     }
 
-    public function getHungarianTitle() : string {
+    public function getHungarianTitle() : string
+    {
         return $this->hungarianTitle;
     }
 
-    public function getOriginalTitle() : string {
+    public function getOriginalTitle() : string
+    {
         return $this->originalTitle;
     }
 
@@ -53,29 +60,34 @@ class PortMovie implements \JsonSerializable
      * There are cases when no year provided for a movie, in that case the getYear()
      * method will return -1.
      */
-    public function hasYear() : bool {
+    public function hasYear() : bool
+    {
         return $this->hasYear;
     }
     
     /**
      * @return int  -1 if no year found, or the actual year.
      */
-    public function getYear() : int {
+    public function getYear() : int
+    {
         return $this->year;
     }
 
-    public function hasPoster() : bool {
-        $length = strlen( $this->getPoster() );
+    public function hasPoster() : bool
+    {
+        $length = strlen($this->getPoster());
         
-        return ( $length != 0 );
+        return ($length != 0);
     }
 
-    public function getPoster() : string {
+    public function getPoster() : string
+    {
         return $this->poster;
     }
 
 
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return [
             'id'              => $this->getID(),
             'url'             => $this->getURL(),

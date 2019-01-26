@@ -8,7 +8,8 @@ use PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePageDeserializerBase;
 
 class WithoutPosterTest extends MoviePageDeserializerBase
 {
-    public function __construct() {
+    public function __construct()
+    {
         $id             = 184111;
         $url            = 'https://port.hu/adatlap/film/tv/-/movie-184111';
         $imdbURL        = 'http://www.imdb.com/title/tt2872518/';
@@ -18,7 +19,7 @@ class WithoutPosterTest extends MoviePageDeserializerBase
         $year           = 2017;
         $poster         = '';
         
-        $model = new PortMovie( $id, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster );
-        parent::__construct( 'visko', $model );
+        $model = new PortMovie($id, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster);
+        parent::__construct('visko', $model);
     }
 }

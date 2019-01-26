@@ -11,7 +11,8 @@ class QuickSearch extends EndPoint
 
 
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(QuickSearch::ENDPOINT_URL);
     }
 
@@ -19,12 +20,13 @@ class QuickSearch extends EndPoint
 
     /**
      * Make a quick search with the given term.
-     * 
+     *
      * @return  Array   of QuickSearchResult
      */
-    public function get(string $query) : array {
-        $apiResult = parent::callAPI( '?q=' . urlencode( $query ) );
+    public function get(string $query) : array
+    {
+        $apiResult = parent::callAPI('?q=' . urlencode($query));
 
-        return QuickSearchDeserializer::convert( $apiResult );
+        return QuickSearchDeserializer::convert($apiResult);
     }
 }

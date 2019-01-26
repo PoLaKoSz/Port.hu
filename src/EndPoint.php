@@ -13,14 +13,16 @@ abstract class Endpoint
 
 
 
-    public function __construct(string $endpointAddress) {
+    public function __construct(string $endpointAddress)
+    {
         $this->webClient = new WebClient();
         $this->url       = MoviePageDeserializer::BASE_URL . $endpointAddress;
     }
 
 
 
-    protected function callAPI(string $query) : string {
-        return $this->webClient->getSourceCode( $this->url . $query );
+    protected function callAPI(string $query) : string
+    {
+        return $this->webClient->getSourceCode($this->url . $query);
     }
 }
