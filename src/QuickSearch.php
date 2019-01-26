@@ -5,13 +5,14 @@ namespace PoLaKoSz\PortHu;
 use PoLaKoSz\PortHu\Deserializers\QuickSearchDeserializer;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
-class QuickSearch extends Endpoint
+class QuickSearch extends EndPoint
 {
     private const ENDPOINT_URL = 'search/suggest-list';
 
 
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(QuickSearch::ENDPOINT_URL);
     }
 
@@ -19,12 +20,13 @@ class QuickSearch extends Endpoint
 
     /**
      * Make a quick search with the given term.
-     * 
+     *
      * @return  Array   of QuickSearchResult
      */
-    public function get(string $query) : array {
-        $apiResult = parent::callAPI( '?q=' . urlencode( $query ) );
+    public function get(string $query) : array
+    {
+        $apiResult = parent::callAPI('?q=' . urlencode($query));
 
-        return QuickSearchDeserializer::convert( $apiResult );
+        return QuickSearchDeserializer::convert($apiResult);
     }
 }

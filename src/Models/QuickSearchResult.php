@@ -19,7 +19,9 @@ class QuickSearchResult implements \JsonSerializable
 
 
 
-    public function __construct( string $id, string $url, string $hungarianTitle, bool $hasYear, int $year, string $poster) {
+    // phpcs:ignore
+    public function __construct(string $id, string $url, string $hungarianTitle, bool $hasYear, int $year, string $poster)
+    {
         $this->id = $id;
         $this->url = $url;
         $this->hungarianTitle = $hungarianTitle;
@@ -30,15 +32,18 @@ class QuickSearchResult implements \JsonSerializable
 
 
 
-    public function getID() : string {
+    public function getID() : string
+    {
         return $this->id;
     }
 
-    public function getURL() : string {
+    public function getURL() : string
+    {
         return $this->url;
     }
 
-    public function getHungarianTitle() : string {
+    public function getHungarianTitle() : string
+    {
         return $this->hungarianTitle;
     }
 
@@ -47,26 +52,31 @@ class QuickSearchResult implements \JsonSerializable
      * There are cases when no year provided for a movie, in that case the getYear()
      * method will return -1.
      */
-    public function hasYear() : bool {
+    public function hasYear() : bool
+    {
         return $this->hasYear;
     }
     
-    public function getYear() : int {
+    public function getYear() : int
+    {
         return $this->year;
     }
 
-    public function hasPoster() : bool {
-        $length = strlen( $this->getPoster() );
+    public function hasPoster() : bool
+    {
+        $length = strlen($this->getPoster());
         
-        return ( $length != 0 );
+        return ($length != 0);
     }
 
-    public function getPoster() : string {
+    public function getPoster() : string
+    {
         return $this->poster;
     }
 
 
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return [
             'id'              => $this->getID(),
             'url'             => $this->getURL(),

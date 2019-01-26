@@ -1,5 +1,6 @@
 # Port.hu
 
+[![Build Status](https://travis-ci.com/PoLaKoSz/Port.hu.svg?branch=master)](https://travis-ci.com/PoLaKoSz/Port.hu)
 [![Latest Stable Version](https://poser.pugx.org/polakosz/porthu/v/stable)](https://packagist.org/packages/polakosz/porthu)
 [![Total Downloads](https://poser.pugx.org/polakosz/porthu/downloads)](https://packagist.org/packages/polakosz/porthu)
 [![License](https://poser.pugx.org/polakosz/porthu/license)](https://packagist.org/packages/polakosz/porthu)

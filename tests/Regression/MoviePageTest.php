@@ -13,38 +13,46 @@ class MoviePageTest extends TestCase
 
 
 
-    public function __construct() {
+    public function __construct()
+    {
         $page         = new MoviePage();
-        $this->result = $page->get( 202073 );
+        $this->result = $page->get(202073);
     }
 
 
 
-    public function testReturnValidObjectType() {
-        $this->assertInstanceOf( PortMovie::class, $this->result );
+    public function testReturnValidObjectType()
+    {
+        $this->assertInstanceOf(PortMovie::class, $this->result);
     }
     
-    public function testCanExtractMovieId() {
-        $this->assertEquals( 202073, $this->result->getID() );
+    public function testCanExtractMovieId()
+    {
+        $this->assertEquals(202073, $this->result->getID());
     }
 
-    public function testCanExtractMovieUrl() {
-        $this->assertEquals( 'https://port.hu/adatlap/film/tv/-/movie-202073', $this->result->getURL() );
+    public function testCanExtractMovieUrl()
+    {
+        $this->assertEquals('https://port.hu/adatlap/film/tv/-/movie-202073', $this->result->getURL());
     }
 
-    public function testCanExtractMovieHungarianTitle() {
-        $this->assertEquals( 'A kém, aki dobott engem',  $this->result->getHungarianTitle() );
+    public function testCanExtractMovieHungarianTitle()
+    {
+        $this->assertEquals('A kém, aki dobott engem', $this->result->getHungarianTitle());
     }
 
-    public function testHasYear() {
-        $this->assertTrue( $this->result->hasYear() );
+    public function testHasYear()
+    {
+        $this->assertTrue($this->result->hasYear());
     }
 
-    public function testCanExtractMovieYear() {
-        $this->assertEquals( 2018, $this->result->getYear() );
+    public function testCanExtractMovieYear()
+    {
+        $this->assertEquals(2018, $this->result->getYear());
     }
 
-    public function testCanExtractMoviePoster() {
-        $this->assertEquals( 'https://media.port.hu/images/001/074/350x510/093.jpg', $this->result->getPoster() );
+    public function testCanExtractMoviePoster()
+    {
+        $this->assertEquals('https://media.port.hu/images/001/074/350x510/093.jpg', $this->result->getPoster());
     }
 }
