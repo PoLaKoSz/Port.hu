@@ -62,17 +62,13 @@ class MoviePageDeserializer
     {
         $yearNode = static::getNode(
             $html,
-            '//div[@class="row main-container"]/section[@class="row no-hr details-box"]/div'
+            '/html/head/meta[@property="video:release_date"]/@content'
         );
 
-        $details = trim($yearNode->textContent);
-
-        preg_match_all('/\d{4}/', $details, $matches);
-
-        if (!isset($matches[0][0])) {
+        if (!isset($yearNode)) {
             return -1;
         } else {
-            return (int) $matches[0][0];
+            return (int) $yearNode->textContent;
         }
     }
 
