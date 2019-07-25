@@ -4,22 +4,15 @@ namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePage;
 
 use PoLaKoSz\PortHu\Models\PortMovie;
 
+use PoLaKoSz\PortHu\Tests\Integration\Models\MoviePage\WithoutPoster;
 use PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePageDeserializerBase;
 
 class WithoutPosterTest extends MoviePageDeserializerBase
 {
     public function __construct()
-    {
-        $id             = 184111;
-        $url            = 'https://port.hu/adatlap/film/tv/-/movie-184111';
-        $imdbURL        = 'http://www.imdb.com/title/tt2872518/';
-        $hungarianTitle = 'A viskó';
-        $originalTitle  = 'The Shack';
-        $hasYear        = true;
-        $year           = 2017;
-        $poster         = '';
+    {        
+        $expectedModel = new WithoutPoster();
         
-        $model = new PortMovie($id, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster);
-        parent::__construct('visko', $model);
+        parent::__construct('visko', $expectedModel);
     }
 }
