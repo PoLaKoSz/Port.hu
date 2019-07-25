@@ -2,8 +2,8 @@
 
 namespace PoLaKoSz\PortHu\Deserializers;
 
+use DiDom\Document;
 use PoLaKoSz\PortHu\Models\PortMovie;
-use PHPHtmlParser\Dom;
 
 class MoviePageDeserializer
 {
@@ -47,32 +47,30 @@ class MoviePageDeserializer
 
     private static function getOriginalTitle(string $html) : string
     {
-        $smallNode = static::getNode($html, '//div[@class="title"]/small');
+        $dom = new Document($html);
+        $shouldWrapNode = false;
+        $titleNode = $dom->xpath('/html/body/div[2]/div/div[2]/div[2]/div/small', $shouldWrapNode);
 
-        if ($smallNode == null) {
+        if (count($titleNode) == 0 || $titleNode == null) {
             return static::getHungarianTitle($html);
         }
 
-        $trimmed = trim($smallNode->textContent);
+        $title = trim($titleNode[0]->textContent);
 
-        return substr($trimmed, 1, -1);
+        return $title;
     }
 
     private static function getYear(string $html) : int
     {
         $yearNode = static::getNode(
             $html,
-            '//div[@class="row main-container"]/section[@class="row no-hr details-box"]/div'
+            '/html/head/meta[@property="video:release_date"]/@content'
         );
 
-        $details = trim($yearNode->textContent);
-
-        preg_match_all('/\d{4}/', $details, $matches);
-
-        if (!isset($matches[0][0])) {
+        if (!isset($yearNode)) {
             return -1;
         } else {
-            return (int) $matches[0][0];
+            return (int) $yearNode->textContent;
         }
     }
 
