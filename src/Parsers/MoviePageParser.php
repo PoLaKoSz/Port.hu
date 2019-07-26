@@ -17,42 +17,42 @@ class MoviePageParser
      *
      * @return  PortMovie
      */
-    public static function convert(int $movieID, string $html) : PortMovie
+    public function convert(int $movieID, string $html) : PortMovie
     {
         $url            = MoviePageParser::BASE_URL . MoviePageParser::ENDPOINT_URL . $movieID;
-        $imdbURL        = static::getIMDbURL($html);
-        $hungarianTitle = static::getHungarianTitle($html);
-        $originalTitle  = static::getOriginalTitle($html);
-        $year           = static::getYear($html);
+        $imdbURL        = $this->getIMDbURL($html);
+        $hungarianTitle = $this->getHungarianTitle($html);
+        $originalTitle  = $this->getOriginalTitle($html);
+        $year           = $this->getYear($html);
         $hasYear        = $year != -1;
-        $poster         = static::getPoster($html);
+        $poster         = $this->getPoster($html);
 
         return new PortMovie($movieID, $url, $imdbURL, $hungarianTitle, $originalTitle, $hasYear, $year, $poster);
     }
 
 
-    private static function getIMDbURL(string $html) : string
+    private function getIMDbURL(string $html) : string
     {
-        $anchorNode = static::getNode($html, '//a[@class="logo-imdb pull-right"]');
+        $anchorNode = $this->getNode($html, '//a[@class="logo-imdb pull-right"]');
 
         return $anchorNode->attributes->getNamedItem('href')->value;
     }
 
-    private static function getHungarianTitle(string $html) : string
+    private function getHungarianTitle(string $html) : string
     {
-        $headNode = static::getNode($html, '//div[@class="title"]/h1');
+        $headNode = $this->getNode($html, '//div[@class="title"]/h1');
 
         return trim($headNode->textContent);
     }
 
-    private static function getOriginalTitle(string $html) : string
+    private function getOriginalTitle(string $html) : string
     {
         $dom = new Document($html);
         $shouldWrapNode = false;
         $titleNode = $dom->xpath('/html/body/div[2]/div/div[2]/div[2]/div/small', $shouldWrapNode);
 
         if (count($titleNode) == 0 || $titleNode == null) {
-            return static::getHungarianTitle($html);
+            return $this->getHungarianTitle($html);
         }
 
         $title = trim($titleNode[0]->textContent);
@@ -60,9 +60,9 @@ class MoviePageParser
         return $title;
     }
 
-    private static function getYear(string $html) : int
+    private function getYear(string $html) : int
     {
-        $yearNode = static::getNode(
+        $yearNode = $this->getNode(
             $html,
             '/html/head/meta[@property="video:release_date"]/@content'
         );
@@ -74,9 +74,9 @@ class MoviePageParser
         }
     }
 
-    private static function getPoster(string $html) : string
+    private function getPoster(string $html) : string
     {
-        $posterNode = static::getNode($html, '//a[@class="row cover open-gallery"]/img');
+        $posterNode = $this->getNode($html, '//a[@class="row cover open-gallery"]/img');
 
         if ($posterNode == null) {
             return '';
@@ -85,7 +85,7 @@ class MoviePageParser
         return $posterNode->attributes->getNamedItem('src')->value;
     }
 
-    private static function getNode(string $html, string $xPath)
+    private function getNode(string $html, string $xPath)
     {
         $dom = new \DOMDocument();
         @$dom->loadHTML($html);

@@ -15,7 +15,7 @@ class QuickSearchParser
      *
      * @return  Array   of QuickSearchResult
      */
-    public static function convert(string $json) : array
+    public function convert(string $json) : array
     {
         $objects = json_decode($json);
 
@@ -26,10 +26,10 @@ class QuickSearchParser
                 continue;
             }
             
-            $id             = static::getID($object->url);
+            $id             = $this->getID($object->url);
             $url            = QuickSearchParser::BASE_URL . $object->url;
             $hungarianTitle = $object->name;
-            $year           = static::getYear($object->subtitle);
+            $year           = $this->getYear($object->subtitle);
             $hasYear        = $year != -1;
             $poster         = $object->thumbnail;
 
@@ -42,14 +42,14 @@ class QuickSearchParser
         return $response;
     }
 
-    private static function getID(string $input) : int
+    private function getID(string $input) : int
     {
         preg_match('/(\d+)(?!.*\d)/', $input, $match);
 
         return (int) $match[0];
     }
 
-    private static function getYear(string $input) : int
+    private function getYear(string $input) : int
     {
 
         preg_match('/(\d+)(?!.*\d)/', $input, $match);

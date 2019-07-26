@@ -7,12 +7,15 @@ use PoLaKoSz\PortHu\Models\PortMovie;
 
 class QuickSearch extends EndPoint
 {
+    private $parser;
     private const ENDPOINT_URL = 'search/suggest-list';
 
 
 
     public function __construct()
     {
+        $this->parser = new QuickSearchParser();
+
         parent::__construct(QuickSearch::ENDPOINT_URL);
     }
 
@@ -27,6 +30,6 @@ class QuickSearch extends EndPoint
     {
         $apiResult = parent::callAPI('?q=' . urlencode($query));
 
-        return QuickSearchParser::convert($apiResult);
+        return $this->parser->convert($apiResult);
     }
 }

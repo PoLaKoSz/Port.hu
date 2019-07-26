@@ -7,8 +7,14 @@ use PoLaKoSz\PortHu\Models\PortMovie;
 
 class MoviePage extends EndPoint
 {
+    private $parser;
+
+
+
     public function __construct()
     {
+        $this->parser = new MoviePageParser();
+        
         parent::__construct(MoviePageParser::ENDPOINT_URL);
     }
 
@@ -23,6 +29,6 @@ class MoviePage extends EndPoint
     {
         $result = parent::callAPI($movieID);
 
-        return MoviePageParser::convert($movieID, $result);
+        return $this->parser->convert($movieID, $result);
     }
 }
