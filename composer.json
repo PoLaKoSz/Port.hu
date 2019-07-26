@@ -39,6 +39,8 @@
         "run-all-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\",
         "run-i-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Integration",
         "run-r-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Regression",
-        "run-u-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Unit"
+        "run-u-tests": ".\\vendor\\bin\\phpunit --bootstrap .\\vendor\\autoload.php --testdox .\\tests\\Unit",
+
+        "run-tidy": ".\\vendor\\bin\\phpcbf --ignore=.\\tests\\Integration\\StaticResources\\*,vendor\\* --extensions=php ./ --standard=PSR2"
     }
 }

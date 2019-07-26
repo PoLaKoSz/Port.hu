@@ -43,3 +43,7 @@ var_dump( $movies );
 - `$ composer run-i-tests`: runs only the integration tests (saved webpage parsing)
 - `$ composer run-r-tests`: runs only the regression tests (to detect HTML DOM changes in the endpoints - downloads webpage(s) from Port.hu and after try to parse them)
 - `$ composer run-u-tests`: runs only the unit tests
+
+## Code formatting
+
+Please use the `$ composer run-tidy` command before every commit to make sure the source code formatted properly.
