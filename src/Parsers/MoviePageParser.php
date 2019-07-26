@@ -10,6 +10,11 @@ class MoviePageParser
     public const BASE_URL = 'https://port.hu/';
     public const ENDPOINT_URL = 'adatlap/film/tv/-/movie-';
 
+    /**
+     * @return \DOMDocument
+     */
+    private $document;
+
 
 
     /**
@@ -19,6 +24,9 @@ class MoviePageParser
      */
     public function convert(int $movieID, string $html) : PortMovie
     {
+        $this->document = new \DOMDocument();
+        @$this->document->loadHTML($html);
+
         $url            = MoviePageParser::BASE_URL . MoviePageParser::ENDPOINT_URL . $movieID;
         $imdbURL        = $this->getIMDbURL($html);
         $hungarianTitle = $this->getHungarianTitle($html);
@@ -87,10 +95,7 @@ class MoviePageParser
 
     private function getNode(string $html, string $xPath)
     {
-        $dom = new \DOMDocument();
-        @$dom->loadHTML($html);
-
-        $domXPath = new \DOMXPath($dom);
+        $domXPath = new \DOMXPath($this->document);
 
         $node = $domXPath->query($xPath)->item(0);
         
