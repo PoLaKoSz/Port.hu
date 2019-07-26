@@ -1,6 +1,6 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers;
+namespace PoLaKoSz\PortHu\Tests\Integration\Parsers;
 
 use PHPUnit\Framework\TestCase;
 

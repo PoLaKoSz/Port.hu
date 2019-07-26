@@ -1,11 +1,11 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Deserializers;
+namespace PoLaKoSz\PortHu\Parsers;
 
 use DiDom\Document;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
-class MoviePageDeserializer
+class MoviePageParser
 {
     public const BASE_URL = 'https://port.hu/';
     public const ENDPOINT_URL = 'adatlap/film/tv/-/movie-';
@@ -19,7 +19,7 @@ class MoviePageDeserializer
      */
     public static function convert(int $movieID, string $html) : PortMovie
     {
-        $url            = MoviePageDeserializer::BASE_URL . MoviePageDeserializer::ENDPOINT_URL . $movieID;
+        $url            = MoviePageParser::BASE_URL . MoviePageParser::ENDPOINT_URL . $movieID;
         $imdbURL        = static::getIMDbURL($html);
         $hungarianTitle = static::getHungarianTitle($html);
         $originalTitle  = static::getOriginalTitle($html);

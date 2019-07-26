@@ -1,11 +1,11 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers;
+namespace PoLaKoSz\PortHu\Tests\Integration\Parsers;
 
-use PoLaKoSz\PortHu\Deserializers\QuickSearchDeserializer;
+use PoLaKoSz\PortHu\Parsers\QuickSearchParser;
 use PoLaKoSz\PortHu\Models\QuickSearchResult;
 
-abstract class QuickSearchDeserializerBase extends IntegrationBase
+abstract class QuickSearchParserBase extends IntegrationBase
 {
     private $actualCollection;
     private $expectedCollection;
@@ -14,7 +14,7 @@ abstract class QuickSearchDeserializerBase extends IntegrationBase
 
     public function __construct(string $resourceName, array $collection)
     {
-        $class                    = new QuickSearchDeserializer();
+        $class                    = new QuickSearchParser();
 
         $html                     = $this->loadStaticFile('QuickSearch', $resourceName);
         $this->actualCollection   = $class->convert($html);

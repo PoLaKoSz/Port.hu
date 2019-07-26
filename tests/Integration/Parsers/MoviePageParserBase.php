@@ -1,11 +1,11 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers;
+namespace PoLaKoSz\PortHu\Tests\Integration\Parsers;
 
-use PoLaKoSz\PortHu\Deserializers\MoviePageDeserializer;
+use PoLaKoSz\PortHu\Parsers\MoviePageParser;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
-abstract class MoviePageDeserializerBase extends IntegrationBase
+abstract class MoviePageParserBase extends IntegrationBase
 {
     private $actualModel;
     private $expectedModel;
@@ -14,7 +14,7 @@ abstract class MoviePageDeserializerBase extends IntegrationBase
 
     public function __construct(string $resourceName, PortMovie $model)
     {
-        $class               = new MoviePageDeserializer();
+        $class               = new MoviePageParser();
 
         $html                = $this->loadStaticFile('MoviePage', $resourceName);
         $this->actualModel   = $class->convert($model->getID(), $html);

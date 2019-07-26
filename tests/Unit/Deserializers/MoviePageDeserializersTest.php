@@ -1,20 +1,20 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Unit\Deserializers;
+namespace PoLaKoSz\PortHu\Tests\Unit\Parsers;
 
-use PoLaKoSz\PortHu\Deserializers\MoviePageDeserializer;
+use PoLaKoSz\PortHu\Parsers\MoviePageParser;
 
 use PHPUnit\Framework\TestCase;
 
-class MoviePageDeserializersTest extends TestCase
+class MoviePageParsersTest extends TestCase
 {
     public function testBaseUrl()
     {
-        $this->assertEquals('https://port.hu/', MoviePageDeserializer::BASE_URL);
+        $this->assertEquals('https://port.hu/', MoviePageParser::BASE_URL);
     }
 
     public function testEndpointUrl()
     {
-        $this->assertEquals('adatlap/film/tv/-/movie-', MoviePageDeserializer::ENDPOINT_URL);
+        $this->assertEquals('adatlap/film/tv/-/movie-', MoviePageParser::ENDPOINT_URL);
     }
 }

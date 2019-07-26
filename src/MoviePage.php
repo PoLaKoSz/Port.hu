@@ -2,14 +2,14 @@
 
 namespace PoLaKoSz\PortHu;
 
-use PoLaKoSz\PortHu\Deserializers\MoviePageDeserializer;
+use PoLaKoSz\PortHu\Parsers\MoviePageParser;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
 class MoviePage extends EndPoint
 {
     public function __construct()
     {
-        parent::__construct(MoviePageDeserializer::ENDPOINT_URL);
+        parent::__construct(MoviePageParser::ENDPOINT_URL);
     }
 
 
@@ -23,6 +23,6 @@ class MoviePage extends EndPoint
     {
         $result = parent::callAPI($movieID);
 
-        return MoviePageDeserializer::convert($movieID, $result);
+        return MoviePageParser::convert($movieID, $result);
     }
 }

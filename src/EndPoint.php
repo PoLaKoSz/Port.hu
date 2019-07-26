@@ -4,7 +4,7 @@ namespace PoLaKoSz\PortHu;
 
 use PoLaKoSz\PortHu\DataAccessLayer\IWebClient;
 use PoLaKoSz\PortHu\DataAccessLayer\WebClient;
-use PoLaKoSz\PortHu\Deserializers\MoviePageDeserializer;
+use PoLaKoSz\PortHu\Parsers\MoviePageParser;
 
 abstract class Endpoint
 {
@@ -16,7 +16,7 @@ abstract class Endpoint
     public function __construct(string $endpointAddress)
     {
         $this->webClient = new WebClient();
-        $this->url       = MoviePageDeserializer::BASE_URL . $endpointAddress;
+        $this->url       = MoviePageParser::BASE_URL . $endpointAddress;
     }
 
 

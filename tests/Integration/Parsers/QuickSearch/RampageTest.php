@@ -1,11 +1,11 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers\QuickSearch;
+namespace PoLaKoSz\PortHu\Tests\Integration\Parsers\QuickSearch;
 
 use PoLaKoSz\PortHu\Models\QuickSearchResult;
-use PoLaKoSz\PortHu\Tests\Integration\Deserializers\QuickSearchDeserializerBase;
+use PoLaKoSz\PortHu\Tests\Integration\Parsers\QuickSearchParserBase;
 
-class RampageTest extends QuickSearchDeserializerBase
+class RampageTest extends QuickSearchParserBase
 {
     public function __construct()
     {

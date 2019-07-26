@@ -2,7 +2,7 @@
 
 namespace PoLaKoSz\PortHu;
 
-use PoLaKoSz\PortHu\Deserializers\QuickSearchDeserializer;
+use PoLaKoSz\PortHu\Parsers\QuickSearchParser;
 use PoLaKoSz\PortHu\Models\PortMovie;
 
 class QuickSearch extends EndPoint
@@ -27,6 +27,6 @@ class QuickSearch extends EndPoint
     {
         $apiResult = parent::callAPI('?q=' . urlencode($query));
 
-        return QuickSearchDeserializer::convert($apiResult);
+        return QuickSearchParser::convert($apiResult);
     }
 }

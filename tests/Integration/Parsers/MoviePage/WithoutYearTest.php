@@ -1,13 +1,13 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePage;
+namespace PoLaKoSz\PortHu\Tests\Integration\Parsers\MoviePage;
 
 use PoLaKoSz\PortHu\Models\PortMovie;
 
 use PoLaKoSz\PortHu\Tests\Integration\Models\MoviePage\WithoutYear;
-use PoLaKoSz\PortHu\Tests\Integration\Deserializers\MoviePageDeserializerBase;
+use PoLaKoSz\PortHu\Tests\Integration\Parsers\MoviePageParserBase;
 
-class WithoutYearTest extends MoviePageDeserializerBase
+class WithoutYearTest extends MoviePageParserBase
 {
     public function __construct()
     {

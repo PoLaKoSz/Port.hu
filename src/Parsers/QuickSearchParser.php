@@ -1,11 +1,11 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Deserializers;
+namespace PoLaKoSz\PortHu\Parsers;
 
 use PoLaKoSz\PortHu\Models\QuickSearchResult;
 use PHPHtmlParser\Dom;
 
-class QuickSearchDeserializer
+class QuickSearchParser
 {
     private const BASE_URL = 'https://port.hu';
 
@@ -27,7 +27,7 @@ class QuickSearchDeserializer
             }
             
             $id             = static::getID($object->url);
-            $url            = QuickSearchDeserializer::BASE_URL . $object->url;
+            $url            = QuickSearchParser::BASE_URL . $object->url;
             $hungarianTitle = $object->name;
             $year           = static::getYear($object->subtitle);
             $hasYear        = $year != -1;

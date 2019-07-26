@@ -1,11 +1,11 @@
 <?php
 
-namespace PoLaKoSz\PortHu\Tests\Integration\Deserializers\QuickSearch;
+namespace PoLaKoSz\PortHu\Tests\Integration\Parsers\QuickSearch;
 
 use PoLaKoSz\PortHu\Models\QuickSearchResult;
-use PoLaKoSz\PortHu\Tests\Integration\Deserializers\QuickSearchDeserializerBase;
+use PoLaKoSz\PortHu\Tests\Integration\Parsers\QuickSearchParserBase;
 
-class SpyWhoDumpedMeTest extends QuickSearchDeserializerBase
+class SpyWhoDumpedMeTest extends QuickSearchParserBase
 {
     public function __construct()
     {
