@@ -12,7 +12,7 @@ class WithoutYearTest extends MoviePageParserBase
     public function __construct()
     {
         $expectedModel = new WithoutYear();
-        
-        parent::__construct('kingsglaive_15', $expectedModel);
+
+        parent::__construct('magic-camp', $expectedModel);
     }
 }
